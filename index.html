@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <title>TSA Pin Wiki</title>
+    </head>
+    <body>
+        <div class="very-top">
+            <br>
+            <h3 class="text-top">Send us pins you don't see on the list --> </h3>
+                        <!-- Icon to Open Modal -->
+                         <img src = "./img/Mail.svg" alt="Email Us" class="end"id="openModalButton"/>
+            <br>
+        </div>
+        <div class="med-top">
+            <br>
+            <h1 class="top">TSA Pin Wiki</h1>
+            <p class="top">This website was made to track pins and give a more formal ranking of pins with stats and information.</p>
+        </div>
+        <br>
+        <br>
+        <main>
+            <div class="search-form">
+                <input type="text" id="searchQuery" placeholder="Search Pins">
+                <button id="searchButton">Search</button>
+            </div>
+            <div class="album">
+                <!-- Pins will be added here -->
+            </div>
+        </main>
+
+         <!-- The Modal -->
+        <div id="emailModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Submit Pin</h2>
+                <h3>TSA Pin Wiki photo submission rules!</h3>
+                <ul>
+                    <li>Please Put the Pin in its respective State/Country file.</li>
+                    <li>Name it the year it came out. (2005,2020, etc)</li>
+                    <li>Make sure it is of the best quality you can get. The image should be a .jpg and be 410 X 410 px and 50kb in size and the background should be white(If possible)</li>
+                    <li>NO Fake pins / Unofficial pins. Double-check with state officers or advisors toverify they are genuine. We don’t want students lying and getting fake pins for other rare ones.</li>
+                </ul>
+                 <h3>Thank you for your support in helping this project.</h3>
+                 <br>
+                 <h2>Send the State and Year, (example, Washington 2024) and the image of the pin to this email.</h2>
+                 <h3>tsapinwiki@gmail.com</h3>
+                <!-- <form id="emailForm">
+                    <input type="text" id="emailPinTitle" placeholder="Title" required>
+                    <input type="file" id="emailPinImageFile" accept=".jpg" required>
+                    <button type="submit">Send</button>
+                </form> -->
+            </div>
+        </div>
+        <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function(){
+                emailjs.init({publicKey: "PmHPRvr_9QveygIRu",});
+            })();
+        </script> -->
+        <script src="scripts.js"></script>
+        <p class="credit">Website Created by Adrian Vargas</p>
+        <p class="credit">Pin Images by all of the TSA Family</p>
+    </body>
+</html>
