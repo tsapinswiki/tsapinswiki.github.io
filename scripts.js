@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             headers.forEach((header, index) => {
                 pin[header.trim()] = data[index].trim();
             });
+            pin.id = Date.now().toString() + Math.random().toString(36).substr(2, 9);
             return pin;
         });
         return pins;
