@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         title.textContent = pin.title;
 
         const ranking = document.createElement('p');
-        ranking.textContent = `Rank: ${pin.ranking}`;
+        ranking.textContent = `Rank: #${pin.ranking}`;
 
         pinElement.appendChild(img);
         pinElement.appendChild(title);
