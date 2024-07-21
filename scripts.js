@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const pinForm = document.getElementById('pinForm');
     const album = document.querySelector('.album');
     const searchButton = document.getElementById('searchButton');
-    const sortButton = document.getElementById('sortButton');
     const searchQuery = document.getElementById('searchQuery');
+    const sortButton = document.getElementById('sortButton');
     const openModalButton = document.getElementById('openModalButton');
     const emailModal = document.getElementById('emailModal');
     const closeModalButton = document.querySelector('.close');
 
-    // Clear local storage and load pins from CSV on page load
+    // Fetch and load pins from CSV on page load
     localStorage.clear();
     fetchCsvAndLoadPins('/data/pins.csv');
 
@@ -25,6 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
         displayPins(sortedPins);
     });
 
+    function fetchCsvAndLoadPins(csvUrl) {
+        fetch(csvUrl)
+            .then(response => response.text())
+            .then(text => {
+                const pins = csvToPins(text);
+                displayPins(pins);
+                pins.forEach(savePin);
+            })
+            .catch(error => console.error('Error fetching CSV:', error));
+    }
+
     // Open the modal
     openModalButton.addEventListener('click', () => {
         emailModal.style.display = 'block';
@@ -37,21 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close the modal when clicking outside of it
     window.addEventListener('click', (event) => {
-        if (event.target === emailModal) {
+        if (event.target == emailModal) {
             emailModal.style.display = 'none';
         }
     });
-
-    function fetchCsvAndLoadPins(csvUrl) {
-        fetch(csvUrl)
-            .then(response => response.text())
-            .then(text => {
-                const pins = csvToPins(text);
-                displayPins(pins);
-                pins.forEach(savePin);
-            })
-            .catch(error => console.error('Error fetching CSV:', error));
-    }
 
     function csvToPins(csvText) {
         const lines = csvText.split('\n');
@@ -80,12 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = document.createElement('h3');
         title.textContent = pin.title;
 
-        const ranking = document.createElement('p');
-        ranking.textContent = `Rank: #${pin.ranking}`;
+        const rank = document.createElement('p');
+        rank.textContent = `Rank: #${pin.rank}`;
 
         pinElement.appendChild(img);
         pinElement.appendChild(title);
-        pinElement.appendChild(ranking);
+        pinElement.appendChild(rank);
 
         pinElement.addEventListener('click', () => {
             window.location.href = `pin-details.html?id=${pin.id}`;
