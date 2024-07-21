@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalButton = document.querySelector('.close');
     const emailForm = document.getElementById('emailForm');
 
-    // Fetch and load pins from CSV on page load
+    // Clear local storage and load pins from CSV on page load
     localStorage.clear();
     fetchCsvAndLoadPins('/data/pins.csv');
 
@@ -18,17 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const filteredPins = pins.filter(pin => pin.title.toLowerCase().includes(query));
         displayPins(filteredPins);
     });
-
-    function fetchCsvAndLoadPins(csvUrl) {
-        fetch(csvUrl)
-            .then(response => response.text())
-            .then(text => {
-                const pins = csvToPins(text);
-                displayPins(pins);
-                pins.forEach(savePin);
-            })
-            .catch(error => console.error('Error fetching CSV:', error));
-    }
 
     // Open the modal
     openModalButton.addEventListener('click', () => {
@@ -42,39 +31,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close the modal when clicking outside of it
     window.addEventListener('click', (event) => {
-        if (event.target == emailModal) {
+        if (event.target === emailModal) {
             emailModal.style.display = 'none';
         }
     });
 
-    // // Handle email form submission
-    // emailForm.addEventListener('submit', async (event) => {
-    //     event.preventDefault();
-
-    //     const pinTitle = document.getElementById('emailPinTitle').value;
-    //     const pinImageFile = document.getElementById('emailPinImageFile').files[0];
-
-    //     if (pinImageFile) {
-    //         const pinImage = pinImageFile;
-    //         const emailParams = {
-    //             to_email: 'tsapinswiki@gmail.com',
-    //             pin_title: pinTitle,
-    //             pin_image: pinImage,
-    //         };
-
-    //         emailjs.send('service_g2k16k8', 'template_zvv7so6', emailParams)
-    //             .then(() => {
-    //                 alert('Email sent successfully!');
-    //                 emailForm.reset();
-    //                 emailModal.style.display = 'none';
-    //             }, (error) => {
-    //                 console.error('Email sending failed:', error);
-    //                 alert('Failed to send email.');
-    //             });
-    //     } else {
-    //         alert("Please select an image file.");
-    //     }
-    // });
+    function fetchCsvAndLoadPins(csvUrl) {
+        fetch(csvUrl)
+            .then(response => response.text())
+            .then(text => {
+                const pins = csvToPins(text);
+                displayPins(pins);
+                pins.forEach(savePin);
+            })
+            .catch(error => console.error('Error fetching CSV:', error));
+    }
 
     function csvToPins(csvText) {
         const lines = csvText.split('\n');
@@ -132,13 +103,4 @@ document.addEventListener('DOMContentLoaded', () => {
         album.innerHTML = '';
         pins.forEach(pin => addPinToAlbum(pin));
     }
-
-    // function convertFileToBase64(file) {
-    //     return new Promise((resolve, reject) => {
-    //         const reader = new FileReader();
-    //         reader.readAsDataURL(file);
-    //         reader.onload = () => resolve(reader.result);
-    //         reader.onerror = error => reject(error);
-    //     });
-    // }
 });
