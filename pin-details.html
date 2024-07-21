@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin Details</title>
+    <style>
+        .details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .details img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="details">
+        <img id="pinImage" alt="Pin Image">
+        <h1 id="pinTitle"></h1>
+        <p id="pinDescription"></p>
+        <p>Ranking: <span id="pinRanking"></span></p>
+        <p>Cool Beans Value: <span id="pinCoolBeans"></span></p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pinId = urlParams.get('id');
+            const pins = JSON.parse(localStorage.getItem('pins')) || [];
+            const pin = pins.find(p => p.id === pinId);
+
+            if (pin) {
+                document.getElementById('pinImage').src = pin.image;
+                document.getElementById('pinTitle').textContent = pin.title;
+                document.getElementById('pinDescription').textContent = pin.description;
+                document.getElementById('pinRanking').textContent = pin.ranking;
+                document.getElementById('pinCoolBeans').textContent = pin.coolBeans;
+            }
+        });
+    </script>
+</body>
+</html>

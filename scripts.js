@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function addPinToAlbum(pin) {
         const pinElement = document.createElement('div');
         pinElement.className = 'pin';
+        pinElement.dataset.id = pin.id;
 
         const img = document.createElement('img');
         img.src = pin.image;
@@ -107,6 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
         pinElement.appendChild(img);
         pinElement.appendChild(title);
         pinElement.appendChild(description);
+
+        pinElement.addEventListener('click', () => {
+            window.location.href = `pin-details.html?id=${pin.id}`;
+        });
 
         album.appendChild(pinElement);
     }
