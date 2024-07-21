@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const pinForm = document.getElementById('pinForm');
     const album = document.querySelector('.album');
     const searchButton = document.getElementById('searchButton');
+    const sortButton = document.getElementById('sortButton');
     const searchQuery = document.getElementById('searchQuery');
     const openModalButton = document.getElementById('openModalButton');
     const emailModal = document.getElementById('emailModal');
     const closeModalButton = document.querySelector('.close');
-    const emailForm = document.getElementById('emailForm');
 
     // Clear local storage and load pins from CSV on page load
     localStorage.clear();
@@ -17,6 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const pins = getPins();
         const filteredPins = pins.filter(pin => pin.title.toLowerCase().includes(query));
         displayPins(filteredPins);
+    });
+
+    sortButton.addEventListener('click', () => {
+        const pins = getPins();
+        const sortedPins = pins.sort((a, b) => a.rank - b.rank);
+        displayPins(sortedPins);
     });
 
     // Open the modal
