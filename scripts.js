@@ -74,12 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = document.createElement('h3');
         title.textContent = pin.title;
 
-        const description = document.createElement('p');
-        description.textContent = pin.description;
+        const ranking = document.createElement('p');
+        ranking.textContent = `Rank: ${pin.ranking}`;
 
         pinElement.appendChild(img);
         pinElement.appendChild(title);
-        pinElement.appendChild(description);
+        pinElement.appendChild(ranking);
 
         pinElement.addEventListener('click', () => {
             window.location.href = `pin-details.html?id=${pin.id}`;
