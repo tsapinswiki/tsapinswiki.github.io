@@ -14,7 +14,7 @@ body {
 }
 
 .centered-image {
-    margin-top: 1rem; /* Adjust as needed to create space */
+    margin-top: -3.5rem; /* Adjust as needed to remove space */
 }
 
 .centered-img {
