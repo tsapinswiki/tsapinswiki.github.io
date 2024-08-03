@@ -19,18 +19,14 @@ body {
 }
 
 .centered-img {
-    max-width: 10%; /* Adjust size if needed */
+    max-width: 7%; /* Adjust size if needed */
     height: auto;
 }
 
 .text-with-icon {
     display: flex;
     align-items: center; /* Vertically center align text and icon */
-    justify-content: flex-end; /* Align items to the end (right) of the container */
-}
-
-.text-top {
-    margin-left: 1rem; /* Space between icon and text */
+    justify-content: flex-start; /* Align items to the start (Left) of the container */
 }
 
 .end {
@@ -39,6 +35,66 @@ body {
     height: auto;
 }
 
+/* Navigation Menu */
+.nav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Ensure menu items are aligned horizontally */
+}
+
+.nav li {
+    float: left;
+}
+
+.nav li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.nav li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Main Content */
 .med-top {
     background-color: red;
     color: white;
@@ -50,7 +106,6 @@ body {
     text-align: center;
 }
 
-/* Main Content */
 main {
     display: flex;
     flex-direction: column;
@@ -58,27 +113,16 @@ main {
     padding: 2rem;
 }
 
-.search-form {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-}
-
-.search-form input,
-.search-form button {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Album and Pins */
+/* Center the album */
 .album {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 2rem;
+    justify-content: center; /* Center the items within the album */
 }
 
+/* Pin Box */
 .pin {
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -156,4 +200,21 @@ main {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.very-top .centered-image img{
+    display:inline-block;
+    transform:translatex(0px) translatey(60px);
+}
+
+li {
+    font-size: x-large;
+}
+
+h2 {
+    font-size: x-large;
+}
+
+h3 {
+    font-size: x-large;
 }
