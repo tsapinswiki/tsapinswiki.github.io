@@ -15,13 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
     searchButton.addEventListener('click', () => {
         const query = searchQuery.value.toLowerCase();
         const pins = getPins();
-        const filteredPins = pins.filter(pin => pin.title.toLowerCase().includes(query));
+        const filteredPins = pins.filter(pin => pin.Name.toLowerCase().includes(query));
         displayPins(filteredPins);
     });
 
     sortButton.addEventListener('click', () => {
         const pins = getPins();
-        const sortedPins = pins.sort((a, b) => a.rank - b.rank);
+        const sortedPins = pins.sort((a, b) => a.Rank - b.Rank);
         displayPins(sortedPins);
     });
 
@@ -74,18 +74,18 @@ document.addEventListener('DOMContentLoaded', () => {
         pinElement.dataset.id = pin.id;
 
         const img = document.createElement('img');
-        img.src = pin.image;
-        img.alt = pin.title;
+        img.src = pin.Image;
+        img.alt = pin.Name;
 
-        const title = document.createElement('h3');
-        title.textContent = pin.title;
+        const Name = document.createElement('h3');
+        Name.textContent = pin.Name;
 
-        const rank = document.createElement('p');
-        rank.textContent = `Rank: #${pin.rank}`;
+        const Rank = document.createElement('p');
+        Rank.textContent = `Rank: #${pin.Rank}`;
 
         pinElement.appendChild(img);
-        pinElement.appendChild(title);
-        pinElement.appendChild(rank);
+        pinElement.appendChild(Name);
+        pinElement.appendChild(Rank);
 
         pinElement.addEventListener('click', () => {
             window.location.href = `pin-details.html?id=${pin.id}`;
