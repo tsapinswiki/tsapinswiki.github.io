@@ -233,16 +233,17 @@ main {
         text-align: center;
     }
     
-    /* Adjust album layout */
+    /* Album layout: display two pins per row */
     .album {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    /* Resize pins */
     .pin {
-        width: 150px;
+        width: calc(50% - 10px); /* 50% width minus some margin */
         height: 200px;
+        margin: 5px; /* Add some space between the pins */
     }
 
     /* Adjust text sizes */
@@ -274,10 +275,11 @@ main {
 @media screen and (max-width: 480px) {
     /* Further reduce pin sizes for very small screens */
     .pin {
-        width: 120px;
+        width: calc(50% - 10px); /* Still maintain 50% width for smaller screens */
         height: 170px;
+        margin: 5px;
     }
-    
+
     .pin h3 {
         font-size: 0.8rem;
     }
@@ -286,3 +288,4 @@ main {
         font-size: 0.8rem;
     }
 }
+
