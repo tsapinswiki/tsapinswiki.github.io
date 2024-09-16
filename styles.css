@@ -10,28 +10,27 @@ body {
 .very-top {
     background-color: royalblue;
     padding: 0.5rem;
-    position: relative; /* Allows positioning child elements relative to this container */
+    position: relative;
 }
 
 .centered-image {
-    margin-top: -3.5rem; /* Adjust as needed to remove space */
-    text-align: center; /* Center the image container */
+    margin-top: -3.5rem;
 }
 
 .centered-img {
-    max-width: 7%; /* Adjust size if needed */
+    max-width: 10%;
     height: auto;
 }
 
 .text-with-icon {
     display: flex;
-    align-items: center; /* Vertically center align text and icon */
-    justify-content: flex-start; /* Align items to the start (Left) of the container */
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .end {
     cursor: pointer;
-    width: 24px; /* Adjust size if needed */
+    width: 24px;
     height: auto;
 }
 
@@ -45,7 +44,9 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Ensure menu items are aligned horizontally */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nav li {
@@ -113,35 +114,47 @@ main {
     padding: 2rem;
 }
 
-/* Center the album */
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.search-form input,
+.search-form button {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Album and Pins */
 .album {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 2rem;
-    justify-content: center; /* Center the items within the album */
+    justify-content: center;
 }
 
-/* Pin Box */
 .pin {
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
     width: 200px;
-    height: 250px; /* Added height to ensure uniform size */
+    height: 250px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    text-align: center; /* Center text */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .pin img {
-    max-width: 100%; /* Ensure image doesn't overflow */
-    max-height: 60%; /* Adjust this value to fit within the pin box */
-    object-fit: contain; /* Ensure the image fits within the box while maintaining aspect ratio */
+    max-width: 100%;
+    max-height: 60%;
+    object-fit: contain;
 }
 
 .pin h3 {
@@ -149,14 +162,14 @@ main {
     padding: 0.5rem;
     background-color: #f4f4f4;
     border-bottom: 1px solid #ccc;
-    width: 100%; /* Ensure the title spans the full width of the pin box */
+    width: 100%;
     box-sizing: border-box;
 }
 
 .pin p {
     padding: 0.5rem;
     margin: 0;
-    width: 100%; /* Ensure the rank spans the full width of the pin box */
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -202,27 +215,73 @@ main {
     cursor: pointer;
 }
 
-.very-top .centered-image img{
-    display:inline-block;
-    transform:translatex(0px) translatey(60px);
+/* Media Queries for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjust centered image size on smaller screens */
+    .centered-img {
+        max-width: 30%;
+    }
+    
+    /* Stack navigation menu items vertically on small screens */
+    .nav ul {
+        flex-direction: column;
+    }
+    
+    .nav li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Adjust album layout */
+    .album {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Resize pins */
+    .pin {
+        width: 150px;
+        height: 200px;
+    }
+
+    /* Adjust text sizes */
+    .pin h3 {
+        font-size: 1rem;
+    }
+
+    .pin p {
+        font-size: 0.9rem;
+    }
+    
+    /* Adjust padding for better mobile readability */
+    main {
+        padding: 1rem;
+    }
+
+    .search-form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-form input,
+    .search-form button {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 
-li {
-    font-size: x-large;
-}
+@media screen and (max-width: 480px) {
+    /* Further reduce pin sizes for very small screens */
+    .pin {
+        width: 120px;
+        height: 170px;
+    }
+    
+    .pin h3 {
+        font-size: 0.8rem;
+    }
 
-h2 {
-    font-size: x-large;
-}
-
-h3 {
-    font-size: x-large;
-}
-
-.about{
-    font-size: x-large;
-}
-
-.best-advisor{
-    color: gold;
+    .pin p {
+        font-size: 0.8rem;
+    }
 }
