@@ -289,3 +289,27 @@ main {
     }
 }
 
+.very-top .centered-image img{
+    display:inline-block;
+    transform:translatex(0px) translatey(60px);
+}
+
+li {
+    font-size: x-large;
+}
+
+h2 {
+    font-size: x-large;
+}
+
+h3 {
+    font-size: x-large;
+}
+
+.about{
+    font-size: x-large;
+}
+
+.best-advisor{
+    color: gold;
+}
