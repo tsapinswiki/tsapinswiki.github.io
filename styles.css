@@ -6,11 +6,17 @@ body {
     box-sizing: border-box;
 }
 
-/* Header and Top Sections */
-.very-top {
+/* Very top */
+.very-top{
+    transform:translatex(0px) translatey(0px);
     background-color: royalblue;
     padding: 0.5rem;
     position: relative;
+}
+
+   /* Division */
+.very-top > div{
+    transform:translatex(0px) translatey(-20px);
 }
 
 .centered-image {
@@ -288,8 +294,10 @@ main {
         font-size: 0.8rem;
     }
 }
-
+/* Image */
 .very-top .centered-image img{
+    position:relative;
+    top:16px;
     display:inline-block;
     transform:translatex(0px) translatey(60px);
 }
@@ -314,3 +322,4 @@ h3 {
 .best-advisor{
     color: gold;
 }
+   
